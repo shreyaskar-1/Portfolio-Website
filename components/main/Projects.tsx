@@ -10,17 +10,17 @@ const Projects = () => {
             <ProjectCard
             src="/NextWebsite.png"
             title='Modern Next.js Portfolio'
-            description='A modern portfolio website built with Next.js, Tailwind CSS, and TypeScript'
+            decription='A modern portfolio website built with Next.js, Tailwind CSS, and TypeScript'
             />
             <ProjectCard
             src="/CardImage.png"
             title='Modern Next.js Portfolio'
-            description='A modern portfolio website built with Next.js, Tailwind CSS, and TypeScript'
+            decription='A modern portfolio website built with Next.js, Tailwind CSS, and TypeScript'
             />
             <ProjectCard
             src="/SpaceWebsite.png"
             title='Modern Next.js Portfolio'
-            description='A modern portfolio website built with Next.js, Tailwind CSS, and TypeScript'
+            decription='A modern portfolio website built with Next.js, Tailwind CSS, and TypeScript'
             />
         </div>
 
