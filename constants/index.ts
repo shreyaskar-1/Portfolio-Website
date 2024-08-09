@@ -1,3 +1,30 @@
+export const projects = [
+  {
+    id: 1,
+    title: "3D Solar System Planets to Explore",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/Frame 1.png",
+    iconLists: ["/react.png", "/tailwind.png", "/ts.png", "/js.png", "/css.png"],
+    link: "/ui.earth.com",
+  },
+  {
+    id: 2,
+    title: "Yoom - Video Conferencing App",
+    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    img: "/Frame 1.png",
+    iconLists: ["/next.png", "/tailwind.png", "/ts.png", "/figma.png", "/css.png"],
+    link: "/ui.yoom.com",
+  },
+  {
+    id: 3,
+    title: "AI Image SaaS - Canva Application",
+    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    img: "/Frame 1.png",
+    iconLists: ["/react.png", "/tailwind.png", "/ts.png", "js.png", "/css.png"],
+    link: "/ui.aiimg.com",
+  },
+];
+
 export const Skill_data = [
     {
       skill_name: "Html 5",
