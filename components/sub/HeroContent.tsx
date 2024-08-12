@@ -4,15 +4,16 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
+import { CardContainer, CardItem } from "./CardComponents";
 import Image from "next/image";
 
-const HeroContent = () => {
+const HeroContent: React.FC = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "FullStack", "MernStack","Web Developer"  ];
+  const toRotate = ["FullStack", "MernStack", "Web Developer"];
   const period = 2000;
 
   useEffect(() => {
@@ -26,7 +27,9 @@ const HeroContent = () => {
   const tick = () => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+    let updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
 
@@ -70,7 +73,7 @@ const HeroContent = () => {
           className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
         >
           <span>
-          Welcome to my Portfolio
+            Welcome to my Portfolio
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               {" "}
               {text}{" "}
@@ -97,12 +100,23 @@ const HeroContent = () => {
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        <Image
-          src="/mainIconsdark.svg"
-          alt="work icons"
-          height={650}
-          width={650}
-        />
+        <CardContainer className="inter-var">
+          <CardItem
+            translateZ="100"
+            rotateX={20}
+            rotateY={20}
+            rotateZ={0}
+            className="w-[25rem] h-[38rem] lg:mt-10"
+          >
+            <Image
+              src="/shrey_sit.jpg"
+              height={1000}
+              width={1000}
+              className="h-full w-full object-cover rounded-full group-hover/card:shadow-xl"
+              alt="thumbnail"
+            />
+          </CardItem>
+        </CardContainer>
       </motion.div>
     </motion.div>
   );
