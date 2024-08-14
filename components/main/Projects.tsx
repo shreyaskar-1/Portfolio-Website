@@ -1,30 +1,32 @@
 "use client";
 
+import React from 'react';
 import { FaLocationArrow } from "react-icons/fa6";
-
-import {projects } from '@/constants'
+import { projects } from '@/constants';
 import { PinContainer } from "../sub/ProjectCard";
 
 const Projects = () => {
   return (
-    <div className="py-2" id="project">
-     <div className="flex flex-wrap items-center justify-center p-4 gap-16"> <h2 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10">Recent Projects</h2></div>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16">
+    <div className="py-20" id='projects'>
+      <h1 className="heading">
+        A small selection of{" "}
+        <span className="text-purple">recent projects</span>
+      </h1>
+      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map((item) => (
           <div
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
             key={item.id}
           >
             <PinContainer
-              title="/ui.aceternity.com"
-              href="https://twitter.com/"
+              title={item.title}
+              href={item.link}
             >
               <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bgimg" />
                 </div>
                 <img
                   src={item.img}

@@ -20,7 +20,7 @@ export const globeConfig = {
   autoRotate: true,
   autoRotateSpeed: 0.5,
 };
-const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+export const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
 export const sampleArcs = [
   {
     order: 1,
@@ -387,11 +387,11 @@ export const sampleArcs = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/Frame 1.png",
-    iconLists: ["/react.png", "/tailwind.png", "/ts.png", "/js.png", "/css.png"],
-    link: "/ui.earth.com",
+    title: "Talk-A-Tive",
+    des: "A Seamless End To End Chat App Designed for Both 1 to 1 And Group Converstions With Real Time Facilities",
+    img: "/Talk-A-Tive.png",
+    iconLists: ["/react.png", "/tailwind.png", "/Socket.png", "/express.png", "/node-js.png"],
+    link: "https://talk-a-tive-vvj9.onrender.com/",
   },
   {
     id: 2,
@@ -495,16 +495,19 @@ export const Skill_data = [
   
   export const Socials = [
     {
-      name: "Discord",
-      src: "/instagram.svg",
+      name: "Git Hub",
+      src: "/Git.png",
+      url: "https://github.com/shreyaskar-1",
     },
     {
-      name: "Facebook",
-      src: "/facebook.svg",
+      name: "LinkedIn",
+      src: "/linkedin.png",
+      url: "https://www.linkedin.com/in/shreyaskar-upadhyay-3828ab275/",
     },
     {
       name: "Instagram",
-      src: "/discord.svg",
+      src: "/instagram.png",
+      url: "https://www.instagram.com/say_yyaass/",
     },
   ];
   
@@ -611,8 +614,8 @@ export const Skill_data = [
       height: 70,
     },
     {
-      skill_name: "Prisma",
-      Image: "/prisma.webp",
+      skill_name: "Restful",
+      Image: "/Rest.png",
       width: 70,
       height: 70,
     },
@@ -632,14 +635,14 @@ export const Skill_data = [
       height: 70,
     },
     {
-      skill_name: "Tauri",
-      Image: "/tauri.svg",
+      skill_name: "VS Code",
+      Image: "/VSC.png",
       width: 70,
       height: 70,
     },
     {
-      skill_name: "Docker",
-      Image: "/docker.webp",
+      skill_name: "GitHub",
+      Image: "/Git.png",
       width: 70,
       height: 70,
     },
@@ -657,8 +660,8 @@ export const Skill_data = [
   
   export const Other_skill = [
     {
-      skill_name: "Go",
-      Image: "/go.png",
+      skill_name: "Python",
+      Image: "/Python.png",
       width: 60,
       height: 60,
     },

@@ -13,9 +13,9 @@ export const CardContainer: React.FC<CardContainerProps> = ({ children, classNam
     <motion.div
       className={`relative perspective-1000 ${className}`}
       whileHover={{
-        rotateX: 15, // Rotate on the X-axis
-        rotateY: 15, // Rotate on the Y-axis
-        scale: 1.1,  // Pop-out effect
+        rotateX: 15,
+        rotateY: 15,
+        scale: 1.1,  
       }}
     >
       {children}
