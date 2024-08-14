@@ -55,9 +55,9 @@ const HeroContent: React.FC = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
+      className="flex flex-col items-center justify-center px-2 mt-[60rem] gap-5 w-full z-[20] md:gap-0 md:flex-row lg:flex-row md:px-10  lg:px-20 md:mt-40"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
+      <div className="h-full w-full flex flex-col gap-5 justify-center items-center m-auto text-start order-2 md:order1 md:items-start ">
         <motion.div
           variants={slideInFromTop}
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
@@ -100,7 +100,7 @@ const HeroContent: React.FC = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
+        className="w-full h-full flex justify-center items-center order-1 md:order-2"
       >
         <CardContainer className="inter-var">
           <CardItem
@@ -108,7 +108,7 @@ const HeroContent: React.FC = () => {
             rotateX={20}
             rotateY={20}
             rotateZ={0}
-            className="w-[25rem] h-[38rem] lg:mt-10"
+            className="w-[18rem] h-[25rem] mt-0 lg:w-[25rem] lg:h-[38rem] lg:mt-10"
           >
             <Image
               src="/shrey_sit.jpg"

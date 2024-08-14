@@ -5,6 +5,7 @@ import Projects from '@/components/main/Projects';
 import Footer from '@/components/main/Footer';
 import Contact from '@/components/main/Contact';
 
+
 export default function Home() {
   return (
     <main className="h-full w-full">
@@ -13,7 +14,6 @@ export default function Home() {
         <Skills />
         <Encryption />
         <Projects />
-        <Contact/>
         <Footer />
       </div>
     </main>
