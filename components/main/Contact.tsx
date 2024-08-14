@@ -21,6 +21,7 @@ const Contact = () => {
 
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
+  const [warningMessage, setWarningMessage] = useState("");
   const [state, handleSubmit] = useForm("mrbzkjnp");
 
   const onFormUpdate = (category: keyof typeof formInitialDetails, value: string) => {
@@ -32,7 +33,18 @@ const Contact = () => {
 
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Check if all fields are filled
+    const emptyFields = Object.values(formDetails).some((value) => value.trim() === "");
+
+    if (emptyFields) {
+      setWarningMessage("Please fill all the fields.");
+      return;
+    }
+
+    setWarningMessage(""); // Clear any previous warnings
     setButtonText("Sending...");
+
     const response = await fetch("https://formspree.io/f/mrbzkjnp", {
       method: "POST",
       headers: {
@@ -143,6 +155,9 @@ const Contact = () => {
                       }}
                     />
                     <ValidationError prefix="Message" field="message" errors={state.errors} />
+                    {warningMessage && (
+                      <p className="text-red-500 text-sm">{warningMessage}</p>
+                    )}
                     <button
                       type="submit"
                       disabled={state.submitting}
