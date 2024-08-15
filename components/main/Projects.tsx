@@ -7,7 +7,7 @@ import { PinContainer } from "../sub/ProjectCard";
 
 const Projects = () => {
   return (
-    <div className="py-20" id='projects'>
+    <div className="py-20" id='project'>
       <h1 className="heading">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
