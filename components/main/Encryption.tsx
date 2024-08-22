@@ -48,9 +48,10 @@ const Encryption = () => {
 
       <div className="absolute z-[20] bottom-0 px-[5px] md:bottom-[10px]">
         <div className="cursive text-[20px] font-medium text-center text-gray-300">
-          Secure your data with end-to-end encryption
+          Protect Your Data with Advanced Encryption
         </div>
       </div>
+
 
       <div className="absolute inset-0 flex items-center justify-center">
         <video

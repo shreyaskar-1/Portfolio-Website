@@ -4,7 +4,6 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import TrackVisibility from "react-on-screen";
 import dynamic from "next/dynamic";
 import { globeConfig, sampleArcs } from "@/constants";
-import { useForm, ValidationError } from "@formspree/react";
 
 const World = dynamic(() => import("../sub/Globe").then((m) => m.World), {
   ssr: false,
@@ -22,7 +21,6 @@ const Contact = () => {
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
   const [warningMessage, setWarningMessage] = useState("");
-  const [state, handleSubmit] = useForm("mrbzkjnp");
 
   const onFormUpdate = (category: keyof typeof formInitialDetails, value: string) => {
     setFormDetails({
@@ -31,35 +29,56 @@ const Contact = () => {
     });
   };
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     // Check if all fields are filled
     const emptyFields = Object.values(formDetails).some((value) => value.trim() === "");
-
     if (emptyFields) {
       setWarningMessage("Please fill all the fields.");
+      return;
+    }
+
+    // Validate email
+    if (!validateEmail(formDetails.email)) {
+      setWarningMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate phone number length
+    if (formDetails.phone.length !== 10 || isNaN(Number(formDetails.phone))) {
+      setWarningMessage("Please enter a valid 10-digit phone number.");
       return;
     }
 
     setWarningMessage(""); // Clear any previous warnings
     setButtonText("Sending...");
 
-    const response = await fetch("https://formspree.io/f/mrbzkjnp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formDetails),
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/mrbzkjnp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formDetails),
+      });
 
-    if (response.ok) {
-      setButtonText("Sent!");
-      setFormDetails(formInitialDetails); // Clear the form after submission
-    } else {
+      if (response.ok) {
+        setButtonText("Sent!");
+        setFormDetails(formInitialDetails); // Clear the form after submission
+      } else {
+        setButtonText("Send");
+        setWarningMessage("Form submission failed. Please try again.");
+      }
+    } catch (error) {
       setButtonText("Send");
-      console.error("Form submission failed.");
+      setWarningMessage("An error occurred. Please try again later.");
     }
   };
 
@@ -69,11 +88,11 @@ const Contact = () => {
         <h2 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10">
           Get In Touch
         </h2>
-        <div className="w-full flex flex-col justify-center items-center m-auto text-start order-1 md:order2 md:items-start md:flex-row ">
-          <div className="w-full flex justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center m-auto text-start z-20 order-1 md:order2 md:items-start md:flex-row ">
+          <div className="w-full flex justify-center items-center ">
             <div className="md:top-40 w-full h-full">
               <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4">
-                <div className="absolute w-full bottom-0 inset-x-0 h-40 pointer-events-none select-none z-40" />
+                <div className="absolute w-full bottom-0 inset-x-0 h-60 pointer-events-none select-none z-40" />
                 <div className="absolute w-full h-72 md:h-full z-10">
                   <World data={sampleArcs} globeConfig={globeConfig} />
                 </div>
@@ -127,7 +146,6 @@ const Contact = () => {
                         borderImage: "linear-gradient(to right, #8b5cf6, #06b6d4) 1",
                       }}
                     />
-                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                     <input
                       type="tel"
                       value={formDetails.phone}
@@ -154,13 +172,11 @@ const Contact = () => {
                         borderImage: "linear-gradient(to right, #8b5cf6, #06b6d4) 1",
                       }}
                     />
-                    <ValidationError prefix="Message" field="message" errors={state.errors} />
                     {warningMessage && (
                       <p className="text-red-500 text-sm">{warningMessage}</p>
                     )}
                     <button
                       type="submit"
-                      disabled={state.submitting}
                       className="relative inline-flex h-12 w-full md:w-60 md:mt-10 overflow-hidden rounded-lg p-[1px] bg-transparent border-3 border-transparent transition-all duration-300"
                     >
                       <span

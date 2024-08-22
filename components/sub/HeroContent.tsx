@@ -13,7 +13,7 @@ const HeroContent: React.FC = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["FullStack", "MernStack", "Web Developer"];
+  const toRotate = ["FullStack Developer", "MernStack Developer", "Web Developer"];
   const period = 2000;
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const HeroContent: React.FC = () => {
           className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
         >
           <span>
-            Welcome to my Portfolio
+            I&apos;m A
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               {" "}
               {text}{" "}
@@ -85,14 +85,16 @@ const HeroContent: React.FC = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          I&apos;m a Full Stack Software Engineer with experience in Website,
-          Mobile, and Software development. Check out my projects and skills.
+          This is Shreyaskar Upadhyay, and I&apos;m a Full Stack Developer focused on
+          building scalable, user-centric digital solutions. Explore my projects and
+          skills to see how I turn complex ideas into efficient applications.
         </motion.p>
+
         <motion.a
           href="/Shreyaskar Upadhyay Resume.pdf"
           download
           variants={slideInFromLeft(1)}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg w-[220px] max-w-[260px]"
         >
           Download Resume
         </motion.a>

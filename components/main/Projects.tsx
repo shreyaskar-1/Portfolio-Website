@@ -1,17 +1,15 @@
-"use client";
-
 import React from 'react';
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaLocationArrow } from "react-icons/fa";
 import { projects } from '@/constants';
 import { PinContainer } from "../sub/ProjectCard";
 
 const Projects = () => {
   return (
     <div className="py-20" id='project'>
-       <h1 className="text-4xl font-bold text-center">
-       <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            Recent{" "}Projects
-          </span>
+      <h1 className="text-4xl font-bold text-center">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+          Recent{" "}Projects
+        </span>
       </h1>
             
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
