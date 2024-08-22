@@ -8,10 +8,12 @@ import { PinContainer } from "../sub/ProjectCard";
 const Projects = () => {
   return (
     <div className="py-20" id='project'>
-      <h1 className="heading">
-        A small selection of{" "}
-        <span className="text-purple">recent projects</span>
+       <h1 className="text-4xl font-bold text-center">
+       <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Recent{" "}Projects
+          </span>
       </h1>
+            
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map((item) => (
           <div

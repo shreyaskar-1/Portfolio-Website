@@ -69,8 +69,8 @@ const Contact = () => {
         <h2 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10">
           Get In Touch
         </h2>
-        <div className="flex flex-row items-center justify-center px-20 w-full z-[20]">
-          <div className="w-full md:w-1/2 flex justify-center">
+        <div className="w-full flex flex-col justify-center items-center m-auto text-start order-1 md:order2 md:items-start md:flex-row ">
+          <div className="w-full flex justify-center items-center">
             <div className="md:top-40 w-full h-full">
               <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4">
                 <div className="absolute w-full bottom-0 inset-x-0 h-40 pointer-events-none select-none z-40" />
@@ -81,7 +81,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 flex justify-center">
+          <div className="w-full h-full px-4 flex justify-center items-center order-1 md:order-2 lg:px-0">
             <TrackVisibility>
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
